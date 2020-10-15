@@ -23,3 +23,8 @@
 /* KC_ACL2 */
 #define MK_C_OFFSET_2		8
 #define MK_C_INTERVAL_2 	16
+
+/* BackLight */
+#define BACKLIGHT_PIN F6
+#define BACKLIGHT_BREATHING true
+#define BREATHING_PERIOD 3

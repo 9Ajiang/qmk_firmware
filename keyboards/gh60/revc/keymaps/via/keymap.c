@@ -69,10 +69,10 @@ void matrix_scan_user(void) {
         gh60_poker_leds_off();
     }
 
-    if (keymap_config.nkro) {
-        gh60_esc_led_on();
-    } else {
-        gh60_esc_led_off();
-    }
+    // if (keymap_config.nkro) {
+    //     gh60_esc_led_on();
+    // } else {
+    //     gh60_esc_led_off();
+    // }
 
 };
