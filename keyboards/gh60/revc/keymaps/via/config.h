@@ -26,5 +26,5 @@
 
 /* BackLight */
 #define BACKLIGHT_PIN F6
-#define BACKLIGHT_BREATHING true
-#define BREATHING_PERIOD 3
+#define BACKLIGHT_BREATHING
+#define BREATHING_PERIOD 4
