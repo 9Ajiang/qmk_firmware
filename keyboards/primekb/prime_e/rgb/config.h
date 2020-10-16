@@ -1,5 +1,5 @@
 /*
-Copyright 2020 Salicylic_Acid
+Copyright 2019 Holten Campbell
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -15,4 +15,15 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "jisplit89.h"
+#pragma once
+
+#include "config_common.h"
+
+/* USB Device descriptor parameter */
+#define PRODUCT_ID      0x0052
+#define DEVICE_VER      0x0001
+#define PRODUCT         Prime_E RGB
+
+#define RGB_DI_PIN B7
+#define RGBLED_NUM 8
+#define RGBLIGHT_ANIMATIONS
