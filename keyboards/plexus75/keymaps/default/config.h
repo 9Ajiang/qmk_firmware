@@ -1,5 +1,4 @@
-/* Copyright 2020 Yiancar
- *
+/*
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2 of the License, or
@@ -13,17 +12,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RGB_BACKLIGHT_NEBULA12
-#error RGB_BACKLIGHT_NEBULA12 not defined, recheck config.h
-#endif
 
-#include "nebula12.h"
+#pragma once
 
-void board_init(void) {
-  SYSCFG->CFGR1 |= SYSCFG_CFGR1_I2C1_DMA_RMP;
-  SYSCFG->CFGR1 &= ~(SYSCFG_CFGR1_SPI2_DMA_RMP);
-}
-
-void keyboard_post_init_user(void) {
-rgblight_set_effect_range(0, 4);
-}
+#define TAPPING_TOGGLE 2

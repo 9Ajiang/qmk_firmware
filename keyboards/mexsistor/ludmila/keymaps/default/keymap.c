@@ -1,4 +1,4 @@
-/* Copyright 2020 Yiancar
+/* Copyright 2020 Kevin M.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,17 +13,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RGB_BACKLIGHT_NEBULA12
-#error RGB_BACKLIGHT_NEBULA12 not defined, recheck config.h
-#endif
+#include QMK_KEYBOARD_H
 
-#include "nebula12.h"
+// Defines names for use in layer keycodes and the keymap
+enum keyboard_layers{
+    _BASE = 0,
+    _CONTROL
+};
 
-void board_init(void) {
-  SYSCFG->CFGR1 |= SYSCFG_CFGR1_I2C1_DMA_RMP;
-  SYSCFG->CFGR1 &= ~(SYSCFG_CFGR1_SPI2_DMA_RMP);
-}
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+  [_BASE] = LAYOUT( /* Base */
+    KC_COPY, KC_PSCREEN, KC_MUTE,
+    KC_PASTE, KC_ENTER
 
-void keyboard_post_init_user(void) {
-rgblight_set_effect_range(0, 4);
+  ),
+
+};
+
+void encoder_update_user(uint8_t index, bool clockwise) {
+    if (index == 0) {
+        if (clockwise) {
+            tap_code(KC_VOLU);
+        } else {
+            tap_code(KC_VOLD);
+        }
+    }
 }

@@ -1,4 +1,4 @@
-/* Copyright 2020 Yiancar
+/* Copyright 2020 Casey Webster <casey@e1337.dev>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,17 +13,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RGB_BACKLIGHT_NEBULA12
-#error RGB_BACKLIGHT_NEBULA12 not defined, recheck config.h
-#endif
+#pragma once
 
-#include "nebula12.h"
+#include QMK_KEYBOARD_H
 
-void board_init(void) {
-  SYSCFG->CFGR1 |= SYSCFG_CFGR1_I2C1_DMA_RMP;
-  SYSCFG->CFGR1 &= ~(SYSCFG_CFGR1_SPI2_DMA_RMP);
-}
+enum userspace_custom_keycodes {
+    KC_LCCL = SAFE_RANGE,
+    NEW_SAFE_RANGE
+};
 
-void keyboard_post_init_user(void) {
-rgblight_set_effect_range(0, 4);
-}
+#define KC_CTLBS CTL_T(KC_BSPC)
+#define KC_ALTCL LALT_T(KC_CAPS)
+#define KC_LOCK  LGUI(LCTL(KC_L))

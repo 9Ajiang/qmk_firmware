@@ -1,4 +1,4 @@
-/* Copyright 2020 Yiancar
+/* Copyright 2020 Kevin M.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,17 +13,24 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef RGB_BACKLIGHT_NEBULA12
-#error RGB_BACKLIGHT_NEBULA12 not defined, recheck config.h
-#endif
 
-#include "nebula12.h"
+#pragma once
 
-void board_init(void) {
-  SYSCFG->CFGR1 |= SYSCFG_CFGR1_I2C1_DMA_RMP;
-  SYSCFG->CFGR1 &= ~(SYSCFG_CFGR1_SPI2_DMA_RMP);
-}
+#include "quantum.h"
 
-void keyboard_post_init_user(void) {
-rgblight_set_effect_range(0, 4);
-}
+/* This is a shortcut to help you visually see your layout.
+ *
+ * The first section contains all of the arguments representing the physical
+ * layout of the board and position of the keys.
+ *
+ * The second converts the arguments into a two-dimensional array which
+ * represents the switch matrix.
+ */
+#define LAYOUT( \
+    k00, k01, k20, \
+    k10, k11 \
+) { \
+    { k00, k01, }, \
+    { k10, k11, }, \
+    { k20 }  \
+  }
