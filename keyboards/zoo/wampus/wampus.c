@@ -1,4 +1,4 @@
-/* Copyright 2019 gtips
+/* Copyright 2020 Matthew Tso (zoo)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,7 +14,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
+#include "wampus.h"
+#ifdef OLED_DRIVER_ENABLE
 
-// place overrides here
+void board_init(void) {
+    SYSCFG->CFGR1 |= SYSCFG_CFGR1_I2C1_DMA_RMP;
+    SYSCFG->CFGR1 &= ~(SYSCFG_CFGR1_SPI2_DMA_RMP);
+}
 
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    return OLED_ROTATION_180;
+}
+
+#endif
