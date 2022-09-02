@@ -7,11 +7,7 @@
         "**/.build": true,
         "**/*.hex": true,
         "**/*.bin": true,
-        "keyboards/[^g]*": true,
-        "keyboards/?[^h]*": true,
-        "keyboards/??[^6]*": true,
-        "keyboards/gh60/[^r]*": true,
-        "keyboards/gh60/revc/keymaps/[^v]*": true
+        "**/*.uf2": true
     },
     "files.associations": {
         "*.h": "c",
